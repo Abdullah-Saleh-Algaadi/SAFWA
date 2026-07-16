@@ -1,28 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Header() {
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
       if (typeof window !== 'undefined') {
-        if (window.scrollY > lastScrollY && window.scrollY > 80) {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
           // Scrolling down
           setIsVisible(false);
         } else {
           // Scrolling up
           setIsVisible(true);
         }
-        setLastScrollY(window.scrollY);
+        lastScrollY.current = currentScrollY;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <header className={`h-20 glass-bespoke rounded-[24px] sticky top-8 z-30 flex items-center justify-between px-8 mx-0 mb-12 shadow-sm transition-all duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-[150%] opacity-0'}`}>
