@@ -18,7 +18,6 @@ body {
   font-family: 'Tajawal', sans-serif;
   background-color: #fafbfd; /* Extremely light cool gray */
   color: var(--color-navy);
-  overflow-x: hidden;
 }
 
 /* Ambient Mesh Background Elements */
