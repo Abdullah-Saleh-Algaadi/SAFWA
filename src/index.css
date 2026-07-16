@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Tajawal', ui-sans-serif, system-ui, sans-serif;
+  
+  --color-navy: #152136;
+  --color-navy-light: #1f304c;
+  --color-navy-dark: #0a111f;
+  
+  --color-teal: #0d7c86;
+  --color-teal-light: #12a1ad;
+  --color-teal-dark: #095960;
+  
+  --color-amber-accent: #f59e0b;
+}
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  background-color: #fafbfd; /* Extremely light cool gray */
+  color: var(--color-navy);
+  overflow-x: hidden;
+}
+
+/* Ambient Mesh Background Elements */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background-color: #fafbfd;
+}
+
+.ambient-orb-1 {
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(13,124,134,0.08) 0%, rgba(13,124,134,0) 70%);
+  animation: float 20s ease-in-out infinite alternate;
+}
+
+.ambient-orb-2 {
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(21,33,54,0.06) 0%, rgba(21,33,54,0) 70%);
+  animation: float 25s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-5%, 5%) scale(1.05); }
+  100% { transform: translate(5%, -5%) scale(0.95); }
+}
+
+/* Custom Utilities for Bespoke Look */
+@layer utilities {
+  .glass-bespoke {
+    @apply bg-white/70 backdrop-blur-3xl border border-gray-200/80 shadow-[0_8px_32px_rgba(21,33,54,0.06)];
+  }
+  
+  .glass-dark-bespoke {
+    @apply bg-navy/80 backdrop-blur-3xl border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.2)];
+  }
+  
+  .bento-hover {
+    @apply transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_30px_60px_-15px_rgba(13,124,134,0.15)] hover:border-white;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-navy to-teal;
+  }
+
+  .text-gradient-light {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-white to-white/60;
+  }
+}
