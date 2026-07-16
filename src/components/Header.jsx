@@ -1,6 +1,31 @@
+import { useState, useEffect } from 'react';
+
 export default function Header() {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (typeof window !== 'undefined') {
+        if (window.scrollY > lastScrollY && window.scrollY > 80) {
+          // Scrolling down
+          setIsVisible(false);
+        } else {
+          // Scrolling up
+          setIsVisible(true);
+        }
+        setLastScrollY(window.scrollY);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
-    <header className="h-20 glass-bespoke rounded-[24px] sticky top-8 z-30 flex items-center justify-between px-8 mx-0 mb-12 shadow-sm transition-all">
+    <header className={`h-20 glass-bespoke rounded-[24px] sticky top-8 z-30 flex items-center justify-between px-8 mx-0 mb-12 shadow-sm transition-all duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-[150%] opacity-0'}`}>
       <div className="flex items-center">
         <h1 className="text-xl font-black text-gradient uppercase tracking-[0.3em] font-sans">
           SAFWA
