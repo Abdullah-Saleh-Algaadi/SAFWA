@@ -12,52 +12,60 @@ export default function LiveTracking() {
         <div className="absolute top-0 right-0 w-64 h-64 bg-teal/5 rounded-bl-[100px] -z-0"></div>
         <h2 className="text-2xl font-black text-navy mb-16 relative z-10">مسار الصيانة</h2>
 
-        <div className="relative flex justify-between items-center px-6 z-10">
+        <div className="relative flex flex-col md:flex-row justify-between items-start md:items-center px-2 md:px-6 z-10 gap-8 md:gap-0">
           {/* Progress Line */}
-          <div className="absolute top-6 left-12 right-12 h-1.5 bg-gray-100 -z-10 rounded-full"></div>
-          <div className="absolute top-6 right-12 w-[60%] h-1.5 bg-gradient-to-l from-teal to-teal-light -z-10 rounded-full shadow-[0_0_10px_rgba(13,124,134,0.3)]"></div>
+          <div className="absolute top-6 bottom-6 right-9 w-1.5 md:w-auto md:h-1.5 md:top-6 md:bottom-auto md:left-12 md:right-12 bg-gray-100 -z-10 rounded-full"></div>
+          <div className="absolute top-6 right-9 w-1.5 h-[60%] md:h-1.5 md:w-[60%] md:bottom-auto md:right-12 bg-gradient-to-b md:bg-gradient-to-l from-teal to-teal-light -z-10 rounded-full shadow-[0_0_10px_rgba(13,124,134,0.3)]"></div>
 
           {/* Step 1 */}
-          <div className="flex flex-col items-center z-10 w-36 text-center group">
-            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-teal to-teal-dark text-white flex items-center justify-center mb-5 shadow-lg shadow-teal/30 transition-transform group-hover:scale-110 border border-teal/20">
+          <div className="flex flex-row md:flex-col items-center z-10 w-full md:w-36 text-right md:text-center group gap-6 md:gap-0">
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-teal to-teal-dark text-white flex items-center justify-center md:mb-5 shadow-lg shadow-teal/30 transition-transform group-hover:scale-110 border border-teal/20 shrink-0">
               <Check size={24} />
             </div>
-            <h3 className="font-bold text-navy text-base mb-1.5">استلام السيارة</h3>
-            <div className="flex items-center gap-1.5 text-gray-400 text-sm font-medium">
-              <Clock size={14} />
-              09:00 ص
+            <div className="flex-1 md:flex-none">
+              <h3 className="font-bold text-navy text-base mb-1.5">استلام السيارة</h3>
+              <div className="flex items-center gap-1.5 text-gray-400 text-sm font-medium">
+                <Clock size={14} />
+                09:00 ص
+              </div>
             </div>
           </div>
 
           {/* Step 2 */}
-          <div className="flex flex-col items-center z-10 w-36 text-center group">
-            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-teal to-teal-dark text-white flex items-center justify-center mb-5 shadow-lg shadow-teal/30 transition-transform group-hover:scale-110 border border-teal/20">
+          <div className="flex flex-row md:flex-col items-center z-10 w-full md:w-36 text-right md:text-center group gap-6 md:gap-0">
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-teal to-teal-dark text-white flex items-center justify-center md:mb-5 shadow-lg shadow-teal/30 transition-transform group-hover:scale-110 border border-teal/20 shrink-0">
               <Check size={24} />
             </div>
-            <h3 className="font-bold text-navy text-base mb-1.5">الفحص والتشخيص</h3>
-            <div className="flex items-center gap-1.5 text-gray-400 text-sm font-medium">
-              <Clock size={14} />
-              10:30 ص
+            <div className="flex-1 md:flex-none">
+              <h3 className="font-bold text-navy text-base mb-1.5">الفحص والتشخيص</h3>
+              <div className="flex items-center gap-1.5 text-gray-400 text-sm font-medium">
+                <Clock size={14} />
+                10:30 ص
+              </div>
             </div>
           </div>
 
           {/* Step 3 */}
-          <div className="flex flex-col items-center z-10 w-36 text-center group">
-            <div className="w-14 h-14 rounded-full bg-white border-4 border-teal flex items-center justify-center mb-5 relative shadow-[0_0_20px_rgba(13,124,134,0.4)]">
+          <div className="flex flex-row md:flex-col items-center z-10 w-full md:w-36 text-right md:text-center group gap-6 md:gap-0">
+            <div className="w-14 h-14 rounded-full bg-white border-4 border-teal flex items-center justify-center md:mb-5 relative shadow-[0_0_20px_rgba(13,124,134,0.4)] shrink-0">
               <div className="w-4 h-4 bg-teal rounded-full animate-pulse"></div>
               <div className="absolute inset-[-4px] rounded-full border-4 border-teal animate-ping opacity-20"></div>
             </div>
-            <h3 className="font-black text-teal text-lg mb-1">جاري الإصلاح</h3>
-            <p className="text-teal-light font-bold text-sm bg-teal/10 px-3 py-1 rounded-full border border-teal/20">يتم العمل حالياً</p>
+            <div className="flex-1 md:flex-none">
+              <h3 className="font-black text-teal text-lg mb-1">جاري الإصلاح</h3>
+              <p className="inline-block text-teal-light font-bold text-sm bg-teal/10 px-3 py-1 rounded-full border border-teal/20">يتم العمل حالياً</p>
+            </div>
           </div>
 
           {/* Step 4 */}
-          <div className="flex flex-col items-center z-10 w-36 text-center group">
-            <div className="w-14 h-14 rounded-full bg-gray-50 border-2 border-gray-200 text-gray-300 flex items-center justify-center mb-5 transition-transform group-hover:scale-110">
+          <div className="flex flex-row md:flex-col items-center z-10 w-full md:w-36 text-right md:text-center group gap-6 md:gap-0">
+            <div className="w-14 h-14 rounded-full bg-gray-50 border-2 border-gray-200 text-gray-300 flex items-center justify-center md:mb-5 transition-transform group-hover:scale-110 shrink-0">
               <Car size={24} />
             </div>
-            <h3 className="font-bold text-gray-400 text-base mb-1.5">جاهزة للاستلام</h3>
-            <p className="text-gray-300 font-medium text-sm">قريباً</p>
+            <div className="flex-1 md:flex-none">
+              <h3 className="font-bold text-gray-400 text-base mb-1.5">جاهزة للاستلام</h3>
+              <p className="text-gray-300 font-medium text-sm">قريباً</p>
+            </div>
           </div>
         </div>
       </div>
