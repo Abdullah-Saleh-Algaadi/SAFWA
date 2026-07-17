@@ -15,8 +15,8 @@ export default function InvoiceModal({ isOpen, onClose }) {
   }, [isOpen]);
 
   return (
-    <div 
-      className={`fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'opacity-100 pointer-events-auto visible' : 'opacity-0 pointer-events-none invisible'}`} 
+    <div
+      className={`fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'opacity-100 pointer-events-auto visible' : 'opacity-0 pointer-events-none invisible'}`}
       dir="rtl"
     >
       {/* Backdrop */}
@@ -27,20 +27,20 @@ export default function InvoiceModal({ isOpen, onClose }) {
 
       {/* Modal Container */}
       <div className={`glass-bespoke shadow-[0_40px_80px_rgba(21,33,54,0.15)] rounded-[3rem] overflow-hidden relative z-10 w-full max-w-4xl max-h-[90vh] flex flex-col transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform ${isOpen ? 'scale-100 translate-y-0 opacity-100' : 'scale-95 translate-y-8 opacity-0'}`}>
-        
+
         {/* Abstract Ambient Lights inside modal */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-teal/10 via-transparent to-transparent pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-navy/5 via-transparent to-transparent pointer-events-none"></div>
-        
+
         {/* Header */}
         <div className="px-6 sm:px-10 pt-8 sm:pt-10 pb-6 flex flex-col sm:flex-row justify-between items-start gap-6 sm:gap-0 relative z-10 shrink-0 border-b border-gray-100/50">
           <div className="text-right pr-2">
             <h1 className="text-3xl sm:text-5xl font-black text-navy mb-2 sm:mb-4 tracking-tighter">فاتورة صيانة</h1>
             <p className="text-teal font-black uppercase tracking-[0.2em] text-[10px]">Elite Auto Service Center</p>
           </div>
-          
+
           <div className="text-right sm:text-left flex flex-col items-start sm:items-end w-full sm:w-auto border-t border-gray-100/50 sm:border-0 pt-4 sm:pt-0">
-            <button 
+            <button
               onClick={onClose}
               className="absolute top-6 left-6 sm:relative sm:top-auto sm:left-auto sm:mb-8 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-100/50 hover:bg-white text-gray-500 flex items-center justify-center transition-colors shadow-sm"
             >
@@ -54,7 +54,7 @@ export default function InvoiceModal({ isOpen, onClose }) {
         {/* Scrollable Content */}
         <div className="overflow-y-auto flex-1 relative z-10 custom-scrollbar">
           <div className="p-6 sm:p-10 pt-6 sm:pt-8">
-            
+
             {/* Info section (Bento style) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-10">
               <div className="bg-white/40 rounded-[2rem] p-6 sm:p-8 border border-white/50">
@@ -131,14 +131,14 @@ export default function InvoiceModal({ isOpen, onClose }) {
           <div className="bg-navy p-6 sm:p-10 flex flex-col md:flex-row justify-between items-end gap-10 relative shrink-0">
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
             <div className="absolute top-0 right-0 w-96 h-96 bg-teal/20 rounded-bl-full blur-[60px] pointer-events-none"></div>
-            
+
             <div className="w-full md:w-1/2 relative z-10 hidden sm:block">
               <div className="bg-white/5 p-6 rounded-3xl text-gray-300 text-sm border border-white/10 backdrop-blur-md">
                 <span className="text-teal-light font-black uppercase tracking-[0.2em] text-[10px] mb-2 block">Tech Notes</span>
                 <p className="leading-relaxed">تم فحص ضغط الإطارات وتعبئتها. يوصى بفحص البطارية في الزيارة القادمة.</p>
               </div>
             </div>
-            
+
             <div className="w-full md:w-1/3 text-right relative z-10">
               <div className="flex justify-between items-center py-2 text-gray-300">
                 <span className="font-bold text-sm sm:text-base">قطع الغيار</span>
