@@ -47,9 +47,9 @@ export default function Invoices() {
             <button 
               key={inv.id} 
               onClick={() => openModal(inv)}
-              className="w-full glass-bespoke rounded-[2rem] p-6 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(21,33,54,0.08)] transition-all duration-500 group flex items-center justify-between text-right"
+              className="w-full glass-bespoke rounded-[2rem] p-4 sm:p-6 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(21,33,54,0.08)] transition-all duration-500 group flex flex-col sm:flex-row items-start sm:items-center justify-between text-right gap-4 sm:gap-0"
             >
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-4 sm:gap-6 w-full sm:w-auto">
                 <div className="w-16 h-16 rounded-2xl bg-gray-50 flex items-center justify-center shrink-0 group-hover:bg-navy group-hover:text-white transition-colors duration-500 shadow-inner">
                   <FileText size={24} className={inv.status === 'unpaid' ? "text-amber-500 group-hover:text-amber-400" : "text-gray-400 group-hover:text-teal-light"} />
                 </div>
@@ -75,7 +75,7 @@ export default function Invoices() {
                 </div>
               </div>
               
-              <div className="flex items-center gap-8">
+              <div className="flex items-center justify-between sm:justify-end gap-8 w-full sm:w-auto border-t border-gray-100/50 sm:border-0 pt-4 sm:pt-0">
                 <div className="text-left" dir="ltr">
                   <span className="text-xs text-teal font-black uppercase tracking-[0.2em] block mb-1">SAR</span>
                   <span className="text-3xl font-sans font-black text-navy tracking-tighter">{inv.amount}</span>

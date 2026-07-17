@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
+import { Menu } from 'lucide-react';
 
-export default function Header() {
+export default function Header({ onMenuClick }) {
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
 
@@ -27,7 +28,13 @@ export default function Header() {
 
   return (
     <header className={`h-20 glass-bespoke rounded-[24px] sticky top-8 z-30 flex items-center justify-between px-8 mx-0 mb-12 shadow-sm transition-all duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-[150%] opacity-0'}`}>
-      <div className="flex items-center">
+      <div className="flex items-center gap-4">
+        <button 
+          onClick={onMenuClick}
+          className="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-gray-50 text-navy hover:bg-gray-100 transition-colors border border-gray-100"
+        >
+          <Menu size={20} />
+        </button>
         <h1 className="text-xl font-black text-gradient uppercase tracking-[0.3em] font-sans">
           SAFWA
         </h1>
